@@ -1,12 +1,9 @@
 import { WagmiConfig, createClient, configureChains, mainnet } from 'wagmi'
-
 import { publicProvider } from 'wagmi/providers/public'
-
+import { polygon } from '@wagmi/chains';
 import { InjectedConnector } from 'wagmi/connectors/injected'
 
-import { Profile } from './wagmi/chains'
-import { polygon } from '@wagmi/chains';
-
+import { PaginaHome } from './paginas/PaginaHome';
 
 const { chains, provider, webSocketProvider } = configureChains(
   [mainnet, polygon],
@@ -34,7 +31,7 @@ const client = createClient({
 function App() {
   return (
     <WagmiConfig client={client}>
-      <Profile />
+      <PaginaHome />
     </WagmiConfig>
   )
 }
