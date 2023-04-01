@@ -19,18 +19,18 @@ const PaginaHome = () => {
     const { address2, isConnecting, isDisconnected } = useAccount()
 
 
-    const { addressContract, abi } = settings;
+    // const { addressContract, abi } = settings;
 
-    const contract = useContract({
-        address: addressContract,
-        abi
-    })
+    // const contract = useContract({
+    //     address: addressContract,
+    //     abi
+    // })
 
-    const { balance, isError, isLoading } = useContractRead({
-        address: addressContract,
-        abi,
-        functionName: 'getAddress',
-      })
+    // const { balance, isError, isLoading } = useContractRead({
+    //     address: addressContract,
+    //     abi,
+    //     functionName: 'getAddress',
+    //   })
   
     const [estaConectado, setEstaConectado] = useState(false);
 
@@ -48,7 +48,7 @@ const PaginaHome = () => {
                             />
                     {estaConectado && <SeccionUsuario />}
                     
-                <div>{isLoading ? <p>Loading...</p> : <p>BALANCE: {balance} {contract.functions['getBalance']}</p>}</div> 
+                {/* <div>{isLoading ? <p>Loading...</p> : <p>BALANCE: {balance} {contract.functions['getBalance']}</p>}</div>  */}
                 <div>{address2}</div>
                 </section>
             </body>
