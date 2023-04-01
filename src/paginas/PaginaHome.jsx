@@ -1,13 +1,30 @@
-import React from 'react';
-import { Login } from '../componentes/Login'
+import React, { useState } from 'react';
+import { LoginButton } from '../componentes/LoginButton'
 import { Header } from '../componentes/Header';
+
+import './PaginaHome.css'
+import { LogoutButton } from '../componentes/LogoutButton';
+
 
 
 const PaginaHome = () => {
+
+    const [estaConectado, setEstaConectado] = useState(false);
+    
     return (
+
         <React.Fragment>
-            <Header />
-            <Login />
+            <body>
+                <section className='bodyBorder'>
+                    <Header />
+                    {!estaConectado
+                        ? <LoginButton
+                            setEstaConectado={setEstaConectado}
+                            estaConectado={estaConectado}/>
+                        : <LogoutButton />
+                    }
+                </section>
+            </body>
         </React.Fragment>
     )
 }

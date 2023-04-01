@@ -1,7 +1,8 @@
 import { useAccount, useConnect, useEnsName } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
+import { LogoutButton } from './LogoutButton'
 
-import './Login.css'
+import './LoginButton.css'
 
 
 function Profile() {
@@ -18,17 +19,29 @@ function Profile() {
 export { Profile };
 
 
-const Login = () => {
+const LoginButton = ({ setEstaConectado }) => {
 
     const { address, isConnected } = useAccount();
     const { data: ensName } = useEnsName({ address });
     const { connect } = useConnect({
         connector: new InjectedConnector(),
         });
+    
+    // setEstaConectado(isConnected);
+
+    console.log("address: ",address)
+    console.log("isConnected: ",isConnected)
+    console.log("data: ",ensName)
+    console.log("connect: ",connect)
 
     if (isConnected) {
-        return <div>Connected to {ensName ?? address}</div>
+        return <LogoutButton
+                    ensName={ensName}
+                    address={address}
+                />
     }
+
+    
 
     return (
         <body>
@@ -39,4 +52,4 @@ const Login = () => {
     )
 }
 
-export { Login };
+export { LoginButton };
