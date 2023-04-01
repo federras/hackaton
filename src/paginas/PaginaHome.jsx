@@ -19,8 +19,7 @@ const PaginaHome = () => {
                     <Header />
                     {!estaConectado
                         ? <LoginButton
-                            setEstaConectado={setEstaConectado}
-                            estaConectado={estaConectado}/>
+                            setEstaConectado={setEstaConectado}/>
                         : <LogoutButton />
                     }
                 </section>

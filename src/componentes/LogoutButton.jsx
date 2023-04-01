@@ -1,11 +1,8 @@
 import { useDisconnect } from 'wagmi'
 import './LogoutButton.css'
 
-const LogoutButton = ({ensName, address = ''}) => {
+const LogoutButton = ({address = ''}) => {
 
-    // const disconnect = () => {
-    //     console.log("desconectar")
-    // }
     const { disconnect } = useDisconnect()
     
     const shortAddress1 = address.slice(0,6);

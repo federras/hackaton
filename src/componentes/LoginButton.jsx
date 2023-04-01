@@ -5,18 +5,18 @@ import { LogoutButton } from './LogoutButton'
 import './LoginButton.css'
 
 
-function Profile() {
-  const { address, isConnected } = useAccount()
-  const { data: ensName } = useEnsName({ address })
-  const { connect } = useConnect({
-    connector: new InjectedConnector(),
-  })
+// function Profile() {
+//   const { address, isConnected } = useAccount()
+//   const { data: ensName } = useEnsName({ address })
+//   const { connect } = useConnect({
+//     connector: new InjectedConnector(),
+//   })
  
-  if (isConnected) return <div>Connected to {ensName ?? address}</div>
-  return <button onClick={() => connect()}>Connect Wallet</button>
-}
+//   if (isConnected) return <div>Connected to {ensName ?? address}</div>
+//   return <button onClick={() => connect()}>Connect Wallet</button>
+// }
 
-export { Profile };
+// export { Profile };
 
 
 const LoginButton = ({ setEstaConectado }) => {
@@ -35,10 +35,9 @@ const LoginButton = ({ setEstaConectado }) => {
     console.log("connect: ",connect)
 
     if (isConnected) {
+        // setEstaConectado(true);
         return <LogoutButton
-                    ensName={ensName}
-                    address={address}
-                />
+                    address={address}/>
     }
 
     
