@@ -29,13 +29,13 @@ const LoginButton = ({ setEstaConectado }) => {
     
     // setEstaConectado(isConnected);
 
-    console.log("address: ",address)
-    console.log("isConnected: ",isConnected)
-    console.log("data: ",ensName)
-    console.log("connect: ",connect)
-
+    // console.log("address: ",address)
+    // console.log("isConnected: ",isConnected)
+    // console.log("data: ",ensName)
+    // console.log("connect: ",connect)
+    setEstaConectado(isConnected);
+    
     if (isConnected) {
-        // setEstaConectado(true);
         return <LogoutButton
                     address={address}/>
     }
