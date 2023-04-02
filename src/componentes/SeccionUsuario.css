@@ -1,4 +1,13 @@
 .seccion-usuario {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+span {
+    font-size: 18px;
+    /* margin-top: 20px; */
+    margin-bottom: 30px;
 }

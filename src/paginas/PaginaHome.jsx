@@ -1,42 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { LoginButton } from '../componentes/LoginButton'
 import { Header } from '../componentes/Header';
-import { useAccount } from 'wagmi'
-
-
 
 import './PaginaHome.css'
 import { SeccionUsuario } from '../componentes/SeccionUsuario';
 
 import { settings } from "./contrato/settings";
-import { useContract, useContractRead } from 'wagmi'
+import { useContractRead } from 'wagmi'
 
 
-// import { useContractReads } from 'wagmi'
-// import { useContract } from 'wagmi'
+// import { useContractRead} from 'wagmi'
 
 const PaginaHome = () => {
-    const { address2, isConnecting, isDisconnected } = useAccount()
 
-
-    // const { addressContract, abi } = settings;
-
-    // const contract = useContract({
-    //     address: addressContract,
-    //     abi
-    // })
+    const { addressContract, abi } = settings;
 
     // const { balance, isError, isLoading } = useContractRead({
     //     address: addressContract,
     //     abi,
     //     functionName: 'getAddress',
-    //   })
+    // })
   
     const [estaConectado, setEstaConectado] = useState(false);
-
-    console.log(address2)
-
-    
+   
     return (
 
         <React.Fragment>
@@ -46,14 +32,16 @@ const PaginaHome = () => {
                     <LoginButton
                             setEstaConectado={setEstaConectado}
                             />
-                    {estaConectado && <SeccionUsuario />}
+                    {estaConectado && <SeccionUsuario address={"0xasdkajhfekawyekajshdkjaugwraugsdjkhgawr6543216547"}/>}
                     
-                {/* <div>{isLoading ? <p>Loading...</p> : <p>BALANCE: {balance} {contract.functions['getBalance']}</p>}</div>  */}
-                <div>{address2}</div>
+                {/* <div>{isLoading ? <p>Loading...</p> : <p>BALANCE: {balance} {contract.functions['getBalance']}</p>}</div> 
+                <div>{address2}</div> */}
                 </section>
             </body>
         </React.Fragment>
     )
 }
+
+
 
 export { PaginaHome }
